@@ -1,0 +1,2102 @@
+The Pragmatic Programmers
+Practical Vim
+    Second Edition
+Edit Text at the Speed of Thought
+
+What readers are saying about 
+    Practical Vim
+
+I've learned more about Vim by reading this book
+than I have from any other resource.
+>> Robert Evans
+    Software Engineer, Code Wranglers
+
+After reading a couple of chapters of Practical 
+Vim, I realized how little I knew.
+From intermediate to beginner in thirty minutes!
+>> Henrik Nyh
+    Software Engineer
+
+Practical Vim continues to change what I believe
+a text can do.
+>> John P.Daigle
+    Developer, ThoughtWorks,Inc.
+
+Drew has continued the wonderful work he has done 
+with Vimcasts in this book, a must-read for anyone
+serious about Vim.
+>> Anders Janmyr
+    Developer, Jayway
+
+Practical Vim bridges the gap between the official
+documentation and how to really use Vim. After 
+reading a few chapters, I switched to using Vim
+as my default editor. I've never looked back.
+>> Janvier Collado
+    QA Automation Engineer, Canonical Ltd.
+
+Drew Neil does more than show the right tool for
+the job. He paces the narrative, laying out the 
+philosophy behind each decision. Instead of 
+expecting you to memorize everything, Practical
+Vim teaches you to think with Vim under your
+fingertips.
+>> Mislav Marohnic
+    Consultant
+
+I've been using Vim for server maintenance for 
+more than fifteen years now. but I've only 
+recently started using it for software development.
+I thought I knew Vim, but Practical Vim has 
+massively improved my code-wrangling productivity.
+>> Graeme Mathieson
+    Software Engineer, Rubaidh Ltd.
+
+Practical Vim made me realize how much there is
+still to learn about Vim. Every single tip cap be
+easily and immediately applied to your workflow
+and improve your productivity manifold.
+>> Mathias Meyer
+    Author, Riak Handbook
+
+Practical Vim is the ultimate treasure chest when
+it comes to Vim knowledge. I've used Vim daily for
+over two years now, and this book has been nothing
+short of a revelation for me.
+>> Felix Geisendorfer
+    Cofounder, Transloadit
+
+Practical Vim, Second Edition
+    Edit Text at the speed of Thought
+                                    Drew Neil
+
+                            The Pragmatic Bookshelf
+             Dallas, Texas Raleigh, North Carolina 
+
+Pragmatic Bookshelf
+
+Many of the designations used by manufacturers and
+sellers to distinguish their products are claimed
+as trademarks. Where those designations appear in
+this book, and The Pragmatic Programmers, LLC was
+aware of a trademark claim, the designations have
+been printed in initial capital letters or in all
+capitals. The Pragmatic Starter Kit, The Pragmatic
+Programmer, Pragmatic Programming, Pragmetic 
+Bookshelf, PragProg and the linking g device are
+trademarks of The Pragmatic Programmers, LLC.
+
+Every precaution was taken in the preparation of
+this book. However, the publisher assumes no 
+responsibility for errors or omissions, or for
+damages that may result from the use of information
+(including program listings) contained herein.
+
+Our Pragmatic courses, workshops, and other 
+products can help you and your team create better
+software and have more fun. For more information,
+as well as the latest Pragmatic titles, pleas
+visit us at https://pragprog.com.
+
+The team that produced this book includes:
+
+Katharine Dvorak (editor)
+Potomac Indexing, LLC (index)
+Cathleen Small (copyedit)
+Dave Thomas (layout)
+Janet Furlow (producer)
+Ellie Callahan (support)
+
+For international rights, please contact 
+rights@pragprog.com.
+
+Copyright (C) 2015 The Pragmatic Programmers, LLC.
+All rights reserved.
+
+No part of this publication may be reproduced,
+stored in a retrieval system, or transmitted,
+in any form, or by any means, electronic, 
+mechanical, photocopying, recording, or otherwise,
+without the prior consent of the publisher.
+
+Printed in the United States of America.
+ISBN-13:978-1-60850-127-8
+Encoded using the finest acid-free high-entropy
+binary digits.
+Book version:P1.1__January2016
+
+                                        
+                                        Contents
+    Acknowledgments                             xi
+    Foreword to the First Edition               xv
+    Read Me                                   xvii
+    Read the Forgotten Manual                  xix
+1.  The Vim Way                                  1
+    Tip 1.  Meet the Dot Command                 1
+    Tip 2.  Don't Repeat Yourself                4
+    Tip 3.  Take One Step Back, 
+                Then Three Forward               6
+    Tip 4.  Act, Repeat, Reverse                 8
+    Tip 5.  Find and Replace by Hand             9
+    Tip 6.  Meet the Dot Formula                11
+
+//TODO
+
+
+
+
+                                
+                                 Acknowledgments
+
+Thanks to Bram Moolenaar for creating Vim and to 
+all those who have contributed to its development.
+It's a timeless piece of software, and I look 
+forward to growing with it.
+
+Thanks to everyone at the Pragmatic Bookshelf for 
+working together to make this book the best that
+it could be. Special thanks to Kay Keppler, my 
+developmental editor, for coaching me as a writer
+and for helping to shape this book, despite its 
+growing pains and my occasional tantrums. Thanks
+also to Katharine Dvorak, my development editor 
+for this revised edition. I'd also like to thank
+David Kelly for his adept handling of my unusual
+formatting requests.
+
+Practical Vim didn't start out as a recipe book,
+but Susannah Pfalzer recognized that it would 
+work best in this format. It was painful to have
+to rewrite so much, but in doing so I produced a
+draft that I was happy with for the first time.
+Susannah knows what's best, and I thank her for 
+sharing that insight.
+
+Thanks to Dave Thomas and Andy Hunt for creating
+the Pragmatic Bookshelf. I wouldn't want to be
+represented by any other publisher, and I'm 
+honored to be listed alongside the other titles
+in thier catalog.
+
+Practical Vim wouldn't have been possible without
+my technical reviewers. Each of you contributed
+something and helped to shape the book.
+I'd like to thank Adam McCrea, Alan Gardner, 
+Alex Kahn, Ali Alwasity, Anders Janmyr, Andrew
+Donaldson, Angus Neil, Charlie Tanksley, Ches
+Martin, Daniel Bretoi, Dvid Morris, Denis Gorin, 
+Elyezer Mendes Rezende, Erik St. Martin, Federico
+Galassi, Felix Geisendorfer, Florian Vallen, 
+Graeme Mathieson, Hans Hasselberg, Henrik Nyh, 
+Javier Collado, Jeff Holland, Josh Sullivan, 
+Joshua Flanagan, Kana Natsuno, Kent Frazier, 
+Luis Merino, Mathias Meyer, Matt Southerdenm 
+Mislav Marohnic, Mitch Guthrie, Morgan Prior,
+Paul Barry. Peter Aronoff, Peter Rihn, Phillip
+Roberts, Robert Evans, Ryan Stenhouse, Steven Ragnarok, Tibor Simic, Tim Chase, Tim Pope, Tim
+Tyrrell, and Tobias Sailer.
+
+Even with all of the feedback from my technical 
+reviewers, some mistakes managed to stay hidden.
+I'd like to thank everyone who has reported errors
+in the book, helping me to locate and fix them.
+
+Vim's built-in documentation is a terrific 
+resource, and I make many references to it 
+throughout Practical Vim. I'd like to thank Carlo
+Teubner for publishing Vim's documentation online
+at vimhelp.appspot.com and for keeping it up to 
+date.
+
+Some of the tips in the first edition of Practical
+Vim were awkward, but I included them anyway 
+because I felt that they were important. For this
+revised edition, I'm pleased to have been able to
+rewrite those awkward tips. Thanks to Christian
+Brabandt for implementing the game-changing gn 
+command, which allowed me to rewrite Tips 84, 
+Operate in a Complete Search Match, in page 208.
+Thanks to Yegappan Lakshmanan for implementing
+the cfdo command (and family), which allowed me
+to rewrite Tips 97, Find and Replace Across 
+Multiple Files, on page 236. I'd also like to thank
+David Burgin for patch 7.3.850, which fixed my pet
+bug with the vimgrep command.
+
+As a whole, I'd like to thank the Vim community
+for sharing their insights across the Internet.
+I learned many of the tips in this book by reading
+the Vim tag on StackOverflow and by following
+the vim_user mailing list.
+
+Tim Pope's rails.vim plugin was instrumental in
+convincing me to take Vim seriously, and many of
+his other plugin have become essential parts of my
+setup. I've also gained insight by using the 
+plugins of Kana Natsuno, whose custome text objects
+are some of the best extensions to Vim's core 
+functioanlity that I've come across. Thank you both
+for sharpening the saw so that the rest of us can
+benefit.
+
+Thanks to Joe Rozner for providing the wakeup
+source code that I used to introduce the :make
+command. Thanks to Oleg Efimov for his quick 
+response to nodelint issues. Thanks to Ben Cormack
+for illustrating the robots and ninjas.
+
+In January 2012, we moved to Berlin, where the 
+tech community inspired me to complete this book.
+I'd like to thank Gregor Schmidt for founding the
+Vim Berlin user group and Jan Schulz-Hofen for
+hosting our meetups. The opportunity to speak to 
+fellow Vim users really helped me to get my 
+thoughts in order, so I'm grateful to everyone
+who attended the Vim Berlin meetings. Thank you
+to Daniel and Nina Holle for subletting your home
+to us. It was wonderful place to live and a 
+productive environment in which to work.
+
+In March 2011, when I was living in Egypt, I need
+surgery to clear adhesions that were obstructing
+my bowel. Unlucky for me, I was a long way from
+home. Luckily, my wife was by my side. Hannah
+had me admitted to the South Sinai Hospital, where
+I received excellent care. I want to thank all the
+staff there for their kind help, and Dr.Shawket
+Gerges for successfully operating on me.
+
+When my mum learned that I required surgery, she 
+dropped everything and was on the next flight to 
+Egypt. Considering that the country was in 
+revolution, it took enormous courage to do so.
+I can't imagine how Hannah and I would have got 
+through that diffcult time without the support
+and experience that my mum brought. I consider 
+myself blessed to have two such wonderful women in
+my life.
+
+
+                      Foreword to the First Edition
+
+Conventional wisdom dictates that Vim has a steep
+learning curve. I think most Vim users would 
+disagree. Sure, threre's an initial hump, but once
+you run through vimtutor and learn the basics of
+what to put in your vimrc, you reach a point where
+you can actually get work done --a sort of hobbled
+productivity.
+
+What comes next? The Internet's answer to this is
+the "tip" --a recipe for solving a specific 
+problem. You might search for specific tips when
+your current solution to a problem feels 
+suboptimal, or you might proactivly read some of
+the more popular tips. This strategy works --it's
+how I learned , after all --but it's slow. 
+Learning that * searches for the word under the
+cursor is helpful, but it hardly helps you think
+like a Vim master.
+
+You can understand my skepticism, then, when I 
+found out Practical Vim was using a tips format.
+How could a couple of hundred tips accomplish what
+took me thousands? A few pages in I realized my
+definition of "tip" was narrow-minded. In contrast
+to the problem / solution pattern I had expected,
+Practical Vim tips reach lessons in thinking like
+a proficient Vim user. In a sense, they are more
+like parables than recipes. The first few tips are
+lessons about the eide applivability of the . 
+command. This is a staple of any proficient Vim
+user's repertoire, yet without guidance it was
+years before I came to realize this on my own.
+
+It is for this reason that I am excited about the
+publication of Practical Vim. Because now when Vim
+novices ask me what's the next step, I know what
+to tell them. After all, Practical Vim even taught
+me a few things.
+
+Tim Pope
+Vim core contributor
+April 2012
+
+
+                                        Read Me
+
+Practical Vim is for programmers who want to raise
+their game. You've heard it said that in the hands
+if an expert, Vim shreds text at the speed of
+thought. Reading this book is your next step 
+toward that end.
+
+Practical Vim is a fast track to Vim mastery. It
+won't hold you by the hand, but beginners can find
+the prerequisite knowledge by running through the
+Vim tutor, an interactive lesson distributes with 
+Vim. Practical Vim builds on this foundation by
+highlighting core concepts and demonstrating
+idiomatic usage.
+
+Vim is highly configurable. However, customization
+is a personal thing, so I've tried to avoid
+recommending what should or should not got into
+your vimrc file. Instead, Practical Vim focuses
+on the core functionality of the editor --the stuff
+that's always threre, whether you're working over
+SSH on a remote server or using a local instance of
+GVim, with plugins installed to add extra 
+functionality. Master Vim's core, and you'll gain
+portable access to a text editing power tool.
+
+How This Book Is Structured
+
+Practical Vim is a recipe book. It's not designed
+to be read from start to finish. (I mean it! At the
+start of the next chapter, I'll advise you to skip
+it and jump straight to the action.) Each chapter
+is a collection of tips that are related by a 
+theme, and each tip demonstrates a particular 
+feature in action. Some tips are self-contained.
+Others depend upon material elsewhere in the book.
+Those tips are cross-referenced so you can find
+everything easily.
+
+Practical Vim doesn't progress from novice to
+advanced level, but each individual chapter does.
+A less-experienced Vim user might prefer to make a
+first pass through the book, reading just the 
+early tips in each chapter. A more advanced user
+might choose to focus on the later tips or move
+around the books as needed.
+
+A Note on the Examples
+
+In Vim, there's always more than one way to 
+complete any given task. For example, in Chapter 1,
+The Vim Way, on page 1, all of the problems are
+designed to illustrate an application of the dot
+command, but every one of them could also be solved
+using the  :substitute command.
+
+On seeing my solution, you might think to yourself,
+"Wouldn't it be quicker to do it this way?" And
+you may well be right! My solutions illustrate a 
+particular technique. Look beyond their simplicity,
+and try to find a resemblance to the problems that
+you face daily. That's where these techniques will
+save your time.
+
+Learn to Touch Type, Then Learn Vim
+
+If you have to look down to find the keys on the
+keyboard, the benefits of learning Vim won't come
+fast. Learning to touch type is imperative.
+
+Vim traces its ancestry back to the classic Unix
+editors, vi and ed (see On the Etymology of Vim (
+and Family), on page 55). These predate the mouse
+and all of the point-and-click interfaces that 
+came with it. In Vim, everything can be done with
+the keyboard. For the touch typist, that means Vim
+does everything faster.
+
+
+                        Read the Forgotten Manual
+
+In Practical Vim, I demonstrate by showing examples
+rathar than by describing them. That's not easy to
+do with the written word. To show the steps taken
+during an interactive editing session, I've adopted
+a simple notation that illustrates the keystrokes
+and the contents of a Vim buffer side by side.
+
+If you're keen to jump to the action, you can
+safely skip this chapter for now. It describes
+each of the conventions used throughout Practical
+Vim, many of which you'll find to be 
+self-explanatory. At some point, you'll probably
+come across a symbol and wonder what it stands for.
+When that happens, turn back and consult this 
+chapter for the answer.
+
+Get to Know Vim's Built-in Documentation
+
+The best way to get to know Vim's documentation
+is by spending time in it. To help out, I've 
+included "hyperlink" for entries in Vim's 
+docmentation. For example, here's the "hyperlink"
+for the Vim tutor. :h vimtutor
+
+The icon has a dual function. First, it serves
+as a signpost, drawing the eye to these helpful
+references. Second, if you're reading this on an
+electronic device that's connected to the Internet,
+you can click the icon and it will take you to the
+relevant entry in Vim's online documentaion.
+In this sense, it truly is a hyperlink.
+
+But what if you're reading the paper edition of the
+book? Not to worry. If you have an installation of
+Vim within reach, simply enter the command as it
+appears in front of the icon.
+
+For example, type :h vimtutor (:h is an
+abbreviation for the :help command). Consider this
+is a unique address for the documentation on 
+vimtutor. a URL of sorts. In this sense, the help
+reference is a kind of hyperlink to Vim's built-in
+documentation.
+
+Notation for Simulating Vim on the Page
+
+Vim's modal interface sets it apart from most other
+text editors. To make a musical analogy, let's 
+compare the Qwerty and piano keyboards. A pianist
+can pick out melody by playing one note at a time
+or he or she can hold down several keys at once
+to sound a chord. In most text editors, keyboard
+shortcuts are triggerd by pressing a key while
+holding down one or more modifier buttons, such as
+the control and command keys. This is the Qwerty
+equivalent of playing a chord on the piano 
+keyboard.
+
+Some of Vim's commands are also triggered by 
+playing chords, but Normal mode commands are 
+designed to be typed as a sequence of keystrokes.
+It's the Qwerty equivalent of playing a melogy
+on the piano keyboard.
+
+Ctrl-s is a common convention for representing 
+chordal key commands. It means "Press the Control
+key and the s key at the same time." But this
+convention isn't well suited to describing Vim's
+modal command set. In this section, we'll meet the
+notation the used throghout Practical Vim to 
+illustrate Vim usage.
+
+Playing Melodies
+
+In Normal mode, we compose commands by typing one
+or more keystrokes in sequence. These command
+appear as follows:
+
+Notation    Meaning
+x           Press x once
+dw          In sequence, press d, then w
+dap         In sequence, press d, a, then p
+
+Most of these sequences involve two or three 
+keystrokes, but some are longer. Deciphering the
+meaning of Vim's Normal mode command sequences
+can be challenging, but you'll get better at it
+with practice.
+
+Playing Chords
+
+When you see a keystroke such as <C-p>, it doesn't
+mean "Press <, then C, then -, and so on." The
+<C-p> notation is equivalent to Ctrl-p, which means
+"Press the <Ctrl> and p keys at the same time."
+
+I didn't choose this notation without good reason.
+Vim's documentation uses it (:h key-notation), and
+we can also use it in defining custom kye mappings.
+Some of Vim's commands are formed by combining
+chords and keystrokes in sequence, and this 
+notation handles them well. Consider these 
+examples:
+
+Notation    Meaning
+<C-n>       Press <Ctrl> and n at the same time
+g<C-]>      Press g, followed by <Ctrl> and ] at
+                the same time
+<C-r>0      Press <Ctrl> and r at the same time,
+                then 0
+<C-w><C-=>  Press <Ctrl> and w at the same time,
+                then <Ctrl> and = at the same time
+
+Placeholders
+
+Many of Vim's commands require two or more 
+keystrokes to be entered in sequence. Some commands
+must be followed by a particular kind of keystroke,
+while other commands can be followed by any key on
+the keyboard. I use curly braces to denote the set
+of valid keystrokes that can follow a command.
+Here are some examples:
+
+Notation        Meaning
+f{char}         Press f, followed by any other 
+                    characters
+`{a-z}          Press `, followed by any lowercase
+                    characters
+m{a-zA-Z}       Press m, followed by lowercase or
+                    uppercase letter
+d{motion}       Press d, followed by motion command
+<C-r>{register} Press <Ctrl> and r at the same 
+                    time, followed by the address
+                    of a register
+
+Showing Special Keys
+
+Some keys are called by name. This table shows a
+selection of them:
+
+Notation    Meaning
+<ESC>       Press the Escape key
+<CR>        Press the carriage return key (also
+                known as <Enter>
+<Ctrl>      Press the Control key
+<Tab>       Press the Tab key
+<Shift>     Press the Shift key
+<S-Tab>     Press the <Shift> and <Tab> keys at 
+                the same time
+<Up>        Press the up arrow key
+<Down>      Press the down arrow key
+_           Press the space bar
+
+Note that space bar is represented as _. This 
+could be combined with the f{char} command to 
+form f_.
+
+
+Switching Modes Midcommand
+
+When operating Vim, it's common to switch from
+Normal to Insert mode and back again. Each 
+keystroke could mean something different, depending
+on which mode is active. I've used an alternative
+style to represent keystrokes entered in Insert
+mode, which makes it easy to differentiate them
+from Normal mode keystrokes.
+
+Consider this example: cwreplacement<Esc>. The
+Normal mode cw command deletes to the end of the
+current word and switches to Insert mode. Then we
+type the word "replacement" in Insert mode and
+press <Esc> to switch back to Normal mode again.
+
+The Normal mode styling is also used for Visual
+mode keystrokes, while the Insert mode styling
+can indicate keystrokes entered in Command-Line
+mode and Replace mode. Which mode is active should
+be clear from context.
+
+
+Interacting with the Command Line
+
+In some tips we'll execute a command line, either
+in the shell or from inside Vim. This is what it
+looks like when we execute the grep command in the
+shell:
+
+$ grep -n Waldo *
+
+And this is how it looks when we execute Vim's
+built-in :grep command:
+
+:grep Waldo *
+
+In Practical Vim, the $ symbol that a command line
+is to be executed in an external shell, whereas the
+: prompt indicates that the command line is to be
+excecuted internally from Command-Line mode. 
+Occasionally we'll see other prompts, including
+these:
+
+Prompt  Meaning
+$       Enter the command line in an external shell:       Use Command-Line mode to execute an Ex
+            command
+/       Use Command-Line mode to perform a forward
+            search
+?       Use Command-Line mode to perform a backward
+            search
+=       Use command-Line mode to evaluate a Vim
+            script expression
+            
+Anytime you see an Ex command listed inline, such
+as :write, you can assume that <CR> key is pressed
+to execute the command. Nothing happend otherwise,
+so you can consider <CR> to be implicit.
+
+By contrast, Vim's search command allows us to
+preview the first match befor pressing <CR> (see
+Tip 82, Preview the First Match Before Execution,
+on page 205). When you see a search command listed
+inline, such as /pattern<CR>, the <CR> keystroke is
+listed explicitly. If the <CR> is ommited, that's
+intentional, and it means you shouldn't press the
+Enter key just yet.
+
+
+Showing the Cursor Position in a Buffer
+
+When showing the contents of a buffer, it's useful
+to be able to indicate where the cursor is 
+positioned. In this example, you should see that
+the cursor is placed on the first letter of the
+word "One":
+
+|One two three 
+
+When we make a change that involves several steps,
+the contents of the buffer pass throgh 
+intermediate states. To illustrate the process, I
+use a table showing the commands executed in the
+left column and the contents of the buffer in the
+right column. Here's simple example:
+
+Keystrokes  BufferContents
+{start}     |One two three
+dw          |two three
+
+In row 2 we run the dw command to delete the word
+under the cursor. We can see how the buffer looks
+immediately after running this command by looking
+at the contents of the buffer in the same row.
+
+
+Highlighting Search Matches
+
+When demonstrating Vim's search command, it's
+helpful to be able to highlight any matches that
+occur in the buffer. In this example, searching
+for the string "the" causes for occurrences of the
+pattern to be highlighted:
+
+Keystrokes  BufferContents
+{start}     |the problem with these new recruits
+                is that they don't keep their
+                boots clean.
+/the<CR>    _the_ problem with |the_se new recruits
+                is that _the_y don't keep _the_ir
+                boots clean.
+
+Skip ahead to Tip 81, Highlight Search Matches, on
+page 204, to find out how to enable search 
+highlighting in Vim.
+
+
+Selecting Text in Visual Mode
+
+Visual mode lets us select text in the buffer and
+then operate on the selection. Here, we use the it
+text object to select the contentes of the <a> tag:
+
+Keystrokes  BufferContents
+{start}     <a |href="http://pragprog.com/dnvim/">
+                Practical Vim</a>
+vit         <a href="http://pragprog.com/dnvim/">
+               _Practical Vi|m</a>
+
+Note that the styling for a Visual selection is
+the same for highlighted search matches. When you
+see this style, it should be clear from context
+whether it represents a serch match or a Visual
+selection.
+
+
+Downloading the Examples
+
+The examples in Practical Vim usually begin by
+showing the contents of a file before we change it.
+These code listings include the file path:
+
+macros/incremental.txt
+partridge in a pear tree
+turtle doves
+French hens
+calling birds
+golden rings
+
+Each time you see a file listed with its file path
+in this manner, it means that you can download the
+example. I recommend that you open the file in Vim
+and try out the exercises for yourself. It's best
+way to learn!
+
+To follow along, download all the examples and
+source code from the Pragmatic Bookshelf. If you're
+reading on an electronic device that's connected
+to the Internet, you can also fetch each file one
+by one by clicking on the filename. Try it with 
+the example above.
+
+
+Use Vim's Factory Settings
+
+Vim is highly configurable. If you don't like the
+defaults, then you can change them. That's good
+thing, but it could cause confusion if you follow
+the examples in this book using a customized 
+version of Vim. You may find that some things don't
+work for you the way that they are described in 
+text. If you suspect that your customizations are
+causing interference, here's a quick test. Try 
+quitting Vim and then launching it with these 
+options:
+
+$ vim -u NONE -N
+
+The -u NONE flag tells Vim not to source your
+vimrc on startup. That way, your customizations
+won't be applied and plugins will be disabled.
+When Vim starts up without loading a vimrc file,
+it reverts to vi compatible mode, which causes
+many useful features to be disabled. The -N flag
+prevents this by setting the 'nocompatible'
+option.
+
+For most examples in Practical Vim, the vim -u
+NONE -N trick should guarantee that you get the
+same experience as described, but there are a
+couple of exceptions. Some of Vim's built-in 
+features are implemented with Vim script. Which
+means that they will only work when plugins are
+enabled. This file contains the absolute minimum 
+configuration that is required to activate Vim's
+built-in plugins:
+
+essential.vim
+set nocompatible
+filetype plugin on
+
+When launching Vim, you can use this file instead
+of your vimrc by running the following
+
+$ vim -u code/essential.vim
+
+You'll have to adjust the code/essential.vim path
+accordingly. With Vim's built-in plugins enabled,
+you'll be able to use features such as netrw (Tip
+44, Explore the File System with netrw, on page 104
+) and omni-completion (Tip 119, Auto-complete with
+Context Awareness, on page 293), as well as many
+others. I consider Vim's factory settings to mean
+built-in plugins enabled and vi compatibility
+disabled.
+
+Look out for subsections titled "Preparation" at
+the top of a tip. To follow along with the material
+in these tips, you'll need to configure Vim 
+accordingly. If you start up with Vim's factory
+settings and then apply the customizations on the
+fly, you should be able to reproduce the steps
+from these tips without any problems.
+
+If you're still having problems, see On Vim 
+Versions, on page xxvi.
+
+
+On the Role of Vim Script
+
+Vim script enables us to add new functionality to
+Vim or to change existing functionality. It's a
+complete scripting language in itself and a
+subject worthy of a book of its own. Practical Vim
+is not that book.
+
+But we won't steer clear of the subject entirely.
+Vim script is always just below the surface, ready
+to do our bidding. We'll see a few examples of how
+it can be used for everyday task in Tip 16, Do 
+Back-of-the-Envelope Calculations in Place, on page
+33; Tip 71, Evaluate an Iterator to Number Item in
+a List, on page 177; Tip 95, Perform Arithmetic on
+the Replacement, on page 233; and Tip 96, Swap Two
+or More Words, on page 234.
+
+Practical Vim show you how to get by with Vim's 
+core functionality. In other words, no third-party
+plugins assumed. I've made an exception for Tip 87,
+Search for the Current Visual Selection, on page 
+216. The visual-star.vim plugin adds a feature that
+I find indispensable, and it requires very little
+code --less than ten lines of Vim script. It 
+demonstrates how easily Vim's funcionality can be
+extended. The implementation of visual-star.vim is
+presented inline without explanation. This should
+give you an idea of what Vim script looks like and
+what you can accomplish with it. If it piques your
+interest, then so much better.
+
+
+On Vim Versions
+
+All examples in Practical Vim were tested on the
+latest version of Vim, which was 7.4 at the time 
+of writing. That said, most examples should work
+fine on any 7.x release, and many of the features
+discussed are also available in 6.x.
+
+Some of Vim's functionality can be disables during
+compilation. For example, when configuring the
+build, we could provide the --with-features=tiny
+option, which would disable all but the most
+fundamental features (there are also feature sets
+labeled small, nomal, big, and huge). You can
+browse the feature list by looking up :h +feature-
+list.
+
+If you find that you're missing a feature discussed
+in this book, you might be using a minimal Vim
+build. Check whether or not the feature is 
+available to you with the :version command:
+
+:version
+VIM - Vi IMproved 7.4 (2013 Aug 10, compiled Oct
+14 2015 18:41:08)
+Huge version without GUI. Features included (+) or
+not (-):
++arabic +autocmd +baloon_eval +browse 
++builtin_terms +byte_offset +cindent +clientserver
++clipboard +cmdline_compl +cmdline_hist
++cmdline_info +comments
+...
+
+On a modern computer, there's no reason to use 
+anything less than Vim's huge feature set!
+
+
+Vim in the Terminal or Vim with a GUI? You Choose!
+
+Traditionally, Vim runs inside of the terminal,
+with no graphical user interface (GUI). We could
+say instead that Vim has a TUI: a textual user
+interface. If you spend most of your day at the
+command linem this will feel natural.
+
+If you're accustomed to using a GUI-based text 
+editor, then GVim (or MacVim on OS X) will provide
+a helpful bridge into the world of Vim 
+(see :h gui). GVim supports more fonts and colors
+for syntax highlighting. Also, you can use the
+mouse. And some of the conventions of the 
+operating system are honored. For example, in 
+MacVim you can interact with the system clipboard
+Cmd-X and Cmd-V, save a document with Cmd-S, or
+close a window with Cmd-W. Use these while you find
+your bearings, but be aware that there's always a
+better way.
+
+For the purpose of this book, it doesn't matter
+whether you run Vim in the terminal or as GVim.
+We'll focus on core commands that work just as well
+in either. We'll learn how to do things the Vim
+way.
+
+
+                                        CHAPTER 1
+                                    The Vim Way
+
+Our worlk is repetitive by nature. Whether we're
+making the same small change in several places or
+moving around between similar regions of a 
+document, we repeat many actions. Anything that 
+can streamline a repetitive workflow will save our
+time multifold.
+
+Vim is optimized for repetition. Its efficiency
+stems from the way it tracks our most recent 
+actions. We can always replay the last change with
+a single keystroke. Powerful as this sounds, it's
+useless unless we learn to craft our actions so
+that they perform a useful unit of work when 
+replayed. Mastering this concept is the key to 
+becoming effective with Vim.
+
+The dot command is our starting point. This 
+seemingly simple command is the most versatile 
+tool in the box, and understanding it is the first
+step toward Vim mastery. We'll work through a
+handful of simple editing tasks that can be rapidly
+completed with the dot command. Although each tasks
+looks quite different from the next, their 
+solutions almost converge. We'll identify an ideal
+editing formula, which requires only one keystroke
+to move and another to execute.
+
+
+                                Tip 1
+Meet the Dot Command
+
+The dot command lets us repeat the last change.
+It is the most powerful and versatile command in
+Vim.
+
+Vim's documentation simply states that the dot 
+command "repeats the last change" (see :h .). It
+doesn't sound like much, but in that simple 
+definition we'll find the kernel of what makes
+Vim's mordal editing model so effective. First we
+have to ask, "What is a change?"
+
+To understand the power of the dot command, we 
+have to realize that the "last change" could be 
+one of many things. A change could act at the 
+level of individual characters, entire lines, or
+even the whole file.
+
+To demonstrate, we'll use this snippet of text:
+
+the_vim_way/0_mechanics.txt
+Line one
+Line two
+Line three
+Line four
+
+The x command deletes the character under the 
+cursor. When we use the dot command in this 
+context, "repeat last change" tells Vim to delete
+the character under the cursor:
+
+Keystrokes  BufferContents
+--------------------------
+{start}     |Line one
+             Line two
+             Line three
+             Line four
+--------------------------
+x           |ine one
+             Line two
+             Line three
+             Line four
+--------------------------
+.           |ne one
+             Line two
+             Line three
+             Line four
+--------------------------
+..          | one
+             Line two
+             Line three
+             Line four
+
+We can restore the file to its original state by 
+pressing the u key a few times to undo the changes.
+
+The dd command also performs a deletion, but this
+one acts on the current line as a whole. If we use
+the dot command after dd, then "repeat last change"
+instructs Vim to delete the current line:
+
+
+Keystrokes  BufferContents
+--------------------------
+{start}     |Line one
+             Line two
+             Line three
+             Line four
+--------------------------
+dd          |Line two
+             Line three
+             Line four
+--------------------------
+.           |Line three
+             Line four
+
+Finally, the >G command increases the indentation
+from the current line until the end of the file. 
+If we follow this command with the dot command, 
+then "repeat last change" tells Vim to increase 
+the indentation level from the current position to
+the end of the file. In this example, we'll start
+with the cursor on the second line to highlight 
+the difference
+
+Keystrokes  BufferContents
+--------------------------
+{start}      Line one
+            |Line two
+             Line three
+             Line four
+--------------------------
+>G           Line one
+                |Line two
+             Line three
+             Line four
+--------------------------
+j            Line one
+                Line two
+                |Line three
+                Line four
+--------------------------
+.            Line one
+                 Line two
+                   |Line three
+                    Line four
+--------------------------
+j.           Line one
+                Line two
+                    Line three
+                       |Line four
+
+The x, dd, > commands are all executed from Normal
+mode, but we also create a change each time we dip
+into Insert mode. From the moment we enter Insert
+mode (by pressing i, for example) until we return
+to Normal mode (by pressing <ESC>), Vim records
+every keystroke. After making a change such as 
+this, the dot command will replay our keystrokes
+(see Moving Around in Insert Mode Resets the 
+Change, on page 17, for a caveat).
+
+The Dot Command Is a Micro Macro
+
+Later, in Chapter 11, Macros, on page 161, we'll
+see that Vim can record any arbitrary number of
+keystrokes to be played back later. This allows us
+to capture our most repetitive workflows and
+replay them at a key stroke. We can think of the
+dot command as being a miniature macro, or a 
+"micro" if you prefer.
+
+We'll see a few applications of the dot command
+throughout this chapter. We'll also learn a couple
+of best practices for working with the dot command
+in Tip 9, Compose Repeatable Changes, on page 18,
+and Tip 23, Prefer Operators to Visual Commands
+Where Possible, on page 45.
+
+
+                            Tip 2
+Don't Repeat Yourself
+
+For such a common use case as appending a semicolon
+at the end of a series of lines, Vim provides a
+dedicated command that combines two steps into one.
+
+Suppose that we have a snippet of JavaScript code
+like this:
+
+the_vim_way/2_foo_bar.js
+var foo = 1
+var bar = 'a'
+var foobar = foo + bar
+
+We need to append a semicolon at the end of each
+line. Doing so involves moving our cursor to the
+end of the line and then switching to Insert mode
+to make the change. The $ command will handle the
+motion for us, and then we can run a;<ESC> to make
+the change.
+
+To finish the job, we could run the exact same 
+sequence of keystrokes on the next two lines, but
+that would be missing a trick. The dot command will
+repeat that last change, so instead of duplicating
+our efforts, we could just run j$. twice. One
+keystroke (.) buys us three (a;<ESC>). It's a
+small saving, but these efficiencies accumulate
+when repeated.
+
+But let's take a closer look at this pattern:
+j$.. The j command moves the cursor down one line,
+and then the $ command moves it to the end of the
+line. We've used two keystrokes just to maneuver
+our cursor into position so that we can use the
+dot command. Do you sense that there's room for
+improvement here?
+
+Reduce Extraneous Movement
+
+While the a command appends after the current 
+cursor position, the A command appends at the end
+of the current line. It doesn't matter where our
+cursor is at the time, pressing A will switch to
+Insert mode and move the cursor to the end of the
+line. In other words, it squashes $a into a single
+keystroke. In Two for the Price of One, on page 6,
+we see that Vim has a handful of compound commands.
+
+Here is a refinement of our previous example:
+
+Keystrokes     BufferContents
+-----------------------------
+{start}       |var foo = 1
+               var bar = 'a'
+               var foobar = foo + bar
+-----------------------------
+A;<ESC>        var foo = 1|;
+               var bar = 'a'
+               var foobar = foo + bar
+-----------------------------
+j              var foo = 1;
+               var bar = '|a'
+               var foobar = foo + bar
+-----------------------------
+.              var foo = 1;
+               var bar = 'a'|;
+               var foobar = foo + bar
+-----------------------------
+j.             var foo = 1;
+               var bar = 'a';
+               var foobar = foo + bar|;
+
+By using A instead of $a, we give the dot command
+a boost. Instead of having to position the cursor
+at the end of the line we want to change, we just
+having to make sure it is somewhere (anywhere!) on
+that line. Now we can repeat the change on 
+consecutive lines just by typing j. as many times
+as it takes.
+
+One keystroke to move, another to execute. That's
+about as good as it gets! Watch for this pattern
+of usage, because we'll see it popping up in a
+couple more examples.
+
+Although this formula looks terrific for our short
+example, it's not a universal solution. Imagine if
+we had to append a semicolon to fifty consecuitive
+lines. Pressing j. for each change starts to look
+like a lot of work. For an alternative approach,
+skip ahead to Tip 30, Run Normal Mode Commands
+Across a Range, on page 63.
+
+
+Two for the Price of One
+We could say that the A command compounds two 
+actions ($a) into a single keystroke. It's not 
+alone in doing this. Many of Vim's single-key 
+commands can be seen as a condensed version of two
+or more other commands. The table below shows an
+approximation of some examples. Can you identify
+anything else that they all have in common?
+
+Compound Command    Equivalent in Longhand
+------------------------------------------
+C                   c$
+s                   cl
+S                   ^C
+I                   ^i
+A                   $a
+o                   A<CR>
+O                   ko
+
+If you catch yourself running ko (or worse, k$a<CR>
+), stop! Think about what you're doing. Then 
+recognize that you could have used the 0 command
+instead.
+
+Did you identify the other property that these 
+command share? They all switch from Normal to 
+Insert mode. Think about that and how it might 
+affect the dot command.
+
+
+                            Tip 3
+Take One Step Back, Then Three Forward
+
+We can pad a single character with two spaces (one
+in front, the other behind) by using an idiomatic
+Vim solution. At first it might look slightly odd,
+but solution has the benefit of being repeatable,
+which allows us to complete the task effortlessly.
+
+Suppose that we have a line of code that looks like
+this:
+
+the_vim_way/3_concat.js
+var foo = "method("+argument1+","+argument2")";
+
+Concatenationg strings in JavaScript never looks
+pretty, but we could make this a little easier on
+the eye by padding each + sign with spaces to make
+it look like this:
+
+var foo = "method(" + argument1 + "," + argument2
+            + ")";
+
+Make the Change Repeatable
+
+This idiomatic approach solves the problem:
+
+Keystrokes  BufferContents
+{start}    |var foo = "method("+arg
+                ument1+","+argument2+")";
+f+          var foo = "method("|+arg
+                ument1+","+argument2+")";
+s_+_<Esc>   var foo = "method(" +| arg
+                ument1+","+argument2+")";
+;           var foo = "method(" + arg
+                ument1|+","+argument2+")";
+.           var foo = "method(" + arg
+                ument1 +| ","+argument2+")";
+;.          var foo = "method(" + arg
+                ument1 + "," + argument2+")";
+;.          var foo = "method(" + arg
+                ument1 + "," + argument2 + ")";
+
+The s command compounds two steps into one: it
+deletes the charactar under the cursor and then
+enters Insert mode. Having deleted the + sign, we
+then type _+_ and leave Insert mode.
+
+One step back and then three steps forward. It's
+a strange little dance that might seem unintuitive,
+but we get a big win by doing it this way: we can
+repeat the change with the dot command; all we
+need to do is position our cursor on the next +
+symbolm, and the dot command will repeat that 
+little dance.
+
+
+Make the Motion Repeatable
+
+There's another trick in this example. The f{char}
+command tells Vim to look ahead for next occurrence
+of the specified character and then move the 
+cursor directly ti it if a match is found (see :h
+f). So when we type f+, our cursor goes straight
+to the next + symbol. We'll learn more about the
+f{char} command in Tip 50, Find by Character, on
+page 120.
+
+Having made our first change, we could jump to the
+next occurrence by repeating the f+ command, but
+there's a better way. The ; command will repeat
+the last search that the f command performed. So
+instead of typing f+ four times, we can use that
+command once and then follow up by using ; command
+three times.
+
+
+All Together Now
+
+The ; command takes us to our next target, and the
+. command repeats the last change, so we can 
+complete the changes by typing ;. three times.
+Does that look familiar?
+
+Instead of fighting Vim's modal input model, we're
+working with it and look how much easier it makes
+this particular task.
+
+
+                        Tip 4
+Act, Repeat, Reverse
+
+When facing a repetitive task, we can achive an
+optimal editing strategy by making both the motion
+and the change repeatable. Vim has a knack for 
+this. It remenbers our actions and keeps the most
+common ones within close reach so that we can 
+easily replay them. In this tip, we'll introduce
+each of the actions that Vim can repeat and learn
+how to reverse them.
+
+We've seen that the dot command repeats the last
+change. Since lots of operations count as a change,
+the dot command proves to be versatile. But some
+commands can be repeated by other means, For
+example, @: can be used to repeat any Ex commands
+(as discussed in Tip 31, Repeat the Last Ex 
+Command, on page 65). Or we can repeat the last 
+:substitute command (which itself happens to be
+an Ex command as well) by pressing & (see Tip 93,
+Repeat the Previous Substitute Command, on page 229
+).
+
+If we know how to repeat our actions without having
+to spell them out single time, then we can be more
+efficient. First we act; then we repeat.
+
+But when so much can be achieved with so few
+keystrokes, we have to watch our step. It's easy
+to get trigger-happy. Rapping out j.j.j. again
+and again feels a bit like doing a drum roll. What
+happens if we accidentally hit the j key twice in
+a row? Or worse, the . key?
+
+Whenever Vim makes it easy to repeat an action or
+motion, it always provides some way of backing out
+in case we accidentally go too far. In the case of
+the dot command, we can always hit the u key to 
+undo the last change. If we hit the ; key too many
+times afrer using the f{char} command, we'll miss
+our mark. But we can back up again by pressing ,
+key, which repeats the last f{char} search in the
+reverse direction (see Tip 50, Find by Character,
+on page 120).
+
+It always helps to know where the reverse gear is
+in case you accidentally go a step too far. 
+Table 1, Repeatable Actions and How to Reverse 
+Them, on page 9, summarizes Vim's repeatable 
+commands along with their corresponding reverse 
+action. In most cases, the undo command is the one
+that we reach for. No wonder the u key on my 
+keyboard is so worn out!
+
+Intent          Act         Repeat      Reverse
+Make a change   {edit}      .           u
+Scan line for next character
+                f{char}/t{char}
+                            ;           ,
+Scan line for previous character
+                F{char}/T{char}
+                            ;           ,
+Scan document for next match
+                /pattern<CR>
+                            n           N
+Scan document for previous match
+                ?pattern<CR>
+                            n           N
+Perform substitution
+                :s/target/replacement
+                            &           u
+Execute a sequence of changes
+                qx{changes}q
+                            @x          u
+--------------------
+Table 1 --Repeatable Actions and How to Reverse
+            Them
+
+
+                        Tip 5
+Find and Replace by Hand
+
+Vim has a :substitute command for find-and-replace
+tasks, but with this alternative technique, we'll
+change the first occurrence by hand and then find
+and replace every other match one by one. The dot
+command will save us from labor, but we'll meet
+another nifty one-key command that makes jumping
+between matches a snap.
+
+In this excerpt, the word "content" appears on
+every line:
+
+the_vim_way/1_copy_content.txt
+...We're waiting for content befor the site can go
+live...
+...If you are content with this, let's got ahead
+with it...
+...We'll launch as soon as we have the content...
+
+Suppose that we want to use the word "copy" (as in
+"copywriting") instead of "content." Easy enough,
+you might think; we can just use the substitute
+command, like this:
+
+:%s/content/copy/g
+
+But wait a minute! If we run this command, then
+we're going to create the phrase "If you are 'copy'
+with this," which is nonsense!
+
+We've run into this problem because the word 
+"content" has two meanings. One is synonymous with
+"copy" (and pronounced ^content), the other with
+"happy" (pronounced con^tent). Technically, we're
+dealing with heteronyms (words that are spelled 
+the same but differ in both meaning and 
+pronunciation), but that doesn't really matter.
+The point is, we have to watch our step.
+
+We can't just blindly replace every occurence of
+"content" with "copy". We have to eyeball each one
+and answer "yay" or "nay" to the question, should
+this occurrence be changed? The substitute command
+is up to the task, and we'll find out how in Tip 
+90, Eyeball Each Substitution, on page 223. But
+right now, we'll explore an alternative solution
+that fits with the theme of this chapter.
+
+Be Lazy: Search Without Typing
+
+You might have guessed by now that the dot command
+is my favorite single-key Vim trigger. In second
+place is the * command. This executes a search for
+the word under the cursor at that moment (see :h *)
+.
+
+We could search for the word "content" by pulling
+up the search prompt and spelling out the word in
+full:
+
+/content
+
+Or we could simply place our cursor on the word 
+and hit the * key. Consider the following workflow:
+
+KeyStrokes      BufferContents
+--------------------------------------------------
+{start}         ...We're waiting for content
+                    before the site can go live...
+                ...If you are |content with this, 
+                    let's got ahead with it...
+                ...We'll launch as soon as we have
+                    the content...
+--------------------------------------------------
+*               ...We're waiting for _content_
+                    before the site can go live...
+                ...If you are _content_ with this, 
+                    let's got ahead with it...
+                ...We'll launch as soon as we have
+                    the |_content_...
+--------------------------------------------------
+cwcopy<Esc>     ...We're waiting for _content_
+                    before the site can go live...
+                ...If you are _content_ with this, 
+                    let's got ahead with it...
+                ...We'll launch as soon as we have
+                    the cop|y...
+--------------------------------------------------
+n               ...We're waiting for |_content_
+                    before the site can go live...
+                ...If you are _content_ with this, 
+                    let's got ahead with it...
+                ...We'll launch as soon as we have
+                    the copy...
+--------------------------------------------------
+.               ...We're waiting for cop|y
+                    before the site can go live...
+                ...If you are _content_ with this, 
+                    let's got ahead with it...
+                ...We'll launch as soon as we have
+                    the copy...
+
+We begin with our cursor positioned on the word
+"content" and then use the * command to search for
+it. Try it for yourself. Two things should happen:
+the cursor will jump forward to the next match, 
+and all occurrence will be highlighted. If you
+don't see any highlighting, try running :set hls
+and then refer to Tip 81, Hightlight Search 
+Matches, on page 204, for more detailes.
+
+Having executed a search for the word "content",
+we can now advance to the next occurrence just by
+hitting the n key. In this case, pressing *nn 
+would cycle through all matches, taking us back to
+where we started.
+
+
+Make the Change Repeatable
+
+With our cursor positioned at the start of the
+word "content", we are poised to change it. This
+involves two steps: delete the word "content" and
+then typing its replacement. The cw command deletes
+to the end of the word and then drops us into 
+Insert mode, where we can spell out the word 
+"copy". Vim records our keystrokes until we leave
+Insert mode, so the full sequence cwcopy<Esc> is
+considered to be a single change. Pressing the .
+command deletes to the end of the current word and
+changes it to "copy".
+
+
+All Together Now
+
+We're all set! Each time we press the n key, our
+cursor advances to the next occurrence of the word
+"content". And when we press the . key, it changes
+the word under the cursor to "copy".
+
+If we wanted to replace all occurrence, we could
+blindly hammer out n.n.n. as many times as it took
+to complete all the changes (although in that case,
+we might as well have used the :%s/content/copy/g
+command). But we need to watch out for false 
+matches. So after pressing n, we can examine the
+current match and decide if it should be changed
+to "copy". If so, we trigger the . command. If not,
+we don't. Whatever our decision, we can then move
+on to the next occurrence by pressing n again.
+Rinse and repeat until done.
+
+
+                        Tip 6
+Meet the Dot Formula
+
+We've considered three simple editing tasks so far.
+Even though each problem was different, we found
+a solution using the dot command for each one. In
+this tip, we'll compare each solution and identify
+a common pattern --an optimal editing strategy
+that I call the Dot Formula.
+
+Reviewing Three Dot-Command Editing Tasks
+
+In Tip 2, Don't Repeat Yourself, on page4, we 
+wanted to append a semicolon at the end of a 
+sequence of lines. We changed the first line by
+invoking A;<Esc>, which set us up so that we could
+use the dot command to repeat the change on each
+subsequent line. We could move between lines using
+the j command, and the remaining changes could be
+completed simply by pressing j. as many times as 
+necessary.
+
+In Tip 3, Take One Step Back, Then Three Forward,
+on page 6, we wanted to pad each occurrence of the
++ symbol with a space both in front and behind. We
+used the f+ command to jump to our target and then
+the s command to substitute one character with
+three. That set us up so that we could complete the
+task by pressing ;. a few times.
+
+In Tip 5, Find and Replace by Hand, on page 9, we
+wanted to substitute every occurrence of the word
+"content" with the word "copy". We used the * 
+command to initiate a search for the target wor
+and then ran the cw command to change the first
+occurrence. This set us up so that the n key would
+take us to the next match and the . key would apply
+the same change. We could complete the task simply 
+by pressing n. as many times as it took.
+
+The Ideal: One Keystroke to Move, One Keystroke
+            to Execute
+
+In all of these examples, using the dot command
+repeats the last change. But that's not the only
+thing they share. A single keystroke is all that's
+required to move the cursor to its next target.
+
+We're using one keystroke to move and one keystroke
+to execute. It can't really get any better than
+that, can it? It's an ideal solution. We'll see
+this editing strategy coming up again and again,
+so for the sake of convenience, we'll refer to this
+pattern as the Dot Formula.
+
+
+
+                    Part I
+
+                    Modes
+
+
+        Vim provides a modal user interface.
+        This means that the result of pressing
+        any key on the keyboard may differ
+        depending on which mode is active
+        and how to switch between Vim's mode.
+        In this part of the book, we'll learn
+        how each mode works and what it can
+        be used for.
+
+
+
+                                        CHAPTER 2
+                                        Normal Mode
+
+Normal mode is Vim's natural resting state. If this
+chapter seems surprisingly short, then that's
+because most of this book is about how to use
+Normal mode! Here, however, is where cover some
+core concepts and general tips.
+
+Other text editors spend most of their time in
+something that resembles Insert mode. So to the
+Vim newcomer, it can seem strange that Normal mode
+is the default. In Tip 7, Pause with Your Brush
+Off the Page, on page 16, we'll begin explaining
+why this is by drawing an analogy with the 
+workpace of a painter.
+
+Many Normal mode commands can be executed with a
+count, which causes them to be run multiple times.
+In Tip 10, Use Counts to Do Simple Arithmetic, on
+page 20, we'll meet a pair of commands that 
+increment and decrement numerical values and see
+how these commands can be combined with a count to
+do simple arithmetic.
+
+Just because you can save keystroke by using a 
+count doesn't mean that you should. We'll look at
+some examples where it's better simply to repeat
+a command than take the time to count how many 
+times you want to run it.
+
+Much of the power of Normal mode stems form the
+way that operator commands can be combined with
+motions. We'll finish by looking at the 
+consequeces of this.
+
+
+                        Tip 7
+Pause with Your Brush Off the Page
+
+For those unused to Vim, Normal mode can seem like
+an odd default. But experienced Vim users have
+difficulty imaging it any other way. This tip uses
+an analogy to illustrate the Vim way.
+
+How much time do you reckon artists spend with 
+their paint brushes in contact with the canvas?
+No doubt it would vary from artist to artist, but
+I'd be surprised if it counted for as much as half
+of the time painters spend at worl.
+
+Think of all of the things that painters do besides
+paint. They study their subject, adjust the 
+lighting, and mix paints into new hues. And when it
+comes to applying paint to the canvas, who says 
+they have to use brushes? A painter might switch
+to a palette knife to achieve a different texture
+or use a cotton swab to touch up the paint that's
+already been applied.
+
+The painter does not rest with a brush on the 
+canvas. And so it is with Vim. Normal mode is the
+natural resting state. The clue is in the name,
+really.
+
+Just as painters spend a fraction of their time
+applying paint, programmers spend a fraction of
+their time composing code. More time is spent 
+thinking, reading, and navigating from one part of
+a codebase to another. And when we do want to make
+change, who says we have to switch to Insert mode?
+We can reformat existing code, duplicate it, move
+it around, or delete it. From Normal mode, we have
+many tools at our disposal.
+
+
+                            Tip 8
+Chunk Your Undos
+
+In other text editors, invoking the undo command
+after typing a few words might revert the last
+typed word or character. However, in Vim we can
+control the granularity of the undo command.
+
+The u key triggers the undo command, which reverts
+the most recent change. A change could be anything
+that modifies the text in the docment. That 
+includes commands triggered from Normal, Visual,
+and Command-Line modes, but a change could also
+encompass any text entered (or deleted) in Insert
+mode. So we could also say that i{insert some text}
+<Esc> constitutes a change.
+
+In nonmodal text editors, triggering the undo 
+command after typing a few words could do one of
+two things. It could undo the last character that
+was typed. Or, more helpfully, it could chunk a
+set of characters together so that each undo 
+operation removed a word insterad of a character.
+
+In Vim, we can control the granularity of the undo
+command. From the moment we enter Insert mode until
+we return to Normal mode, everything we typed (or
+deleted) counts as a single change. So we can make
+the undo command operate on words, sentences, or
+paragraphs just by moderating our use of the <Esc>
+key.
+
+So how often should you leave Insert mode? It's a
+matter of preference, but I like to make each
+"undoable chunk" correspond to a thought. As I
+write this text (In Vim, of course!), I often 
+pause at the end of a sentence to consider what
+I'll write next. No matter how brief its duration,
+each pause forms a natural break point, giving me
+a cue to leave Insert mode. When I'm ready to 
+continue writing, I press A and carry on where I
+left off.
+
+If I decided that I've taken a wrong turn, I'll
+switch to Normal mode and press u. Each time I 
+undo, my text decomposes in coherent chunks that
+correspond to my thought process as I was writing
+the original text. It means that I can easily try
+out a sentence or two and then throw them away 
+with a couple of keystrokes.
+
+If I'm in Insert mode with my cursor at the end of
+a line, the quickest way to open a new line is to
+press <CR>. And yet I sometimes prefer to <Esc>o
+just because I anticipate that I might want that
+extra granularity from the undo command. If this
+sounds hard core, don't worry. As you become adept
+with Vim, switching modes feels more and more
+lightweight.
+
+As a general rule, if you've paused for long enough
+to ask the question, "Should I leave Insert mode?"
+then do it.
+
+Moving Around in Insert Mode Resets the Change
+
+When I said that the undo command would revert all
+characters entered (or deleted) during a trip into
+Insert mode and back, I was glossing over a smal
+detail. If we use the <Up>, <Down>, <Left>, or
+<Right> cursor keys while in Insert mode, a new
+undo chunk is created. It's just as though we had
+switched back to Normal mode to move around with
+the h, j, k, or l commands, except that we don't
+have to leave Insert mode. This also has 
+implications on the operation of the dot command.
+
+
+                            Tip 9
+Compose Repeatable Changes
+
+Vim is optimized for repetition. In order to
+exploit this, we have to be mindful of how we
+compose our changes.
+
+In Vim, we always have more than one way of doing
+something. In evaluating which way is best, the
+most obvious metric is efficiency: which technique
+requires the fewest keystrokes (a.k.a VimGolf).
+But how should we pick a winner in the event of
+a tie?
+
+Suppose that our cursor is positioned on the "h"
+at the end of this line of text, and we want to 
+delete the word "nigh".
+
+normal_mode/the_end.txt
+The end id nigh
+
+Delete Backward
+
+Since our curdor is already at the end of the word,
+we might begin by deleting backward.
+
+KeyStrokes      BufferContents
+-------------------------------------------------
+{start}         The end is nig|h
+db              The end is |h
+x               The end is|
+
+Pressing db deletes from the cursor's starting
+position to the beginning of the word, but it 
+leaves the final "h" intact. We can delete this
+rogue character by pressing x. That gives us a Vim
+golf score of 3.
+
+Delete Forward
+
+This time, let's try deleting forward instead.
+
+Keystrokes      BufferContents
+-------------------------------------------------
+{start}         The end is nig|h
+b               The end is |nigh
+dw              The end is|
+
+We have to start by maneuvering our cursor into 
+position with the b motion. Once it's in place, we
+can excise the word with a single dw command.
+once again, our Vim golf score is 3.
+
+Delete an Entire Word
+
+Both of our solutions so far have involved some
+kind of preparation or clean-up. We can be more
+surgical by using the aw text object instead of a
+motion (see :h aw):
+
+Keystrokes      BufferContents
+-------------------------------------------------
+{start}         The end is nig|h
+daw             The end is|
+
+The daw command is easily remembered by the 
+mnemonic delete a word. We'll go into more detail
+on text object in Tip 52, Trace Your Selection with
+Precision Text Objects, on page 126, and Tip 53,
+Delete Around, or Change Inside, on page 129.
+
+
+Tie-Breaker: Which is Most Repeatable?
+
+We've tried three techniques for deleting a word:
+dbx, bdw, and daw. In each case, our Vim golf score
+is 3. So how can we settle the question of which is
+best?
+
+Remember, Vim is optimized for repetition. Let's go
+through these techniques again. This time, we'll 
+finish by invoking the dot command and see what
+happens. I urge you to try these out for yourself.
+
+The backward deletion technique involves two 
+operations: db deletes to the start of the word
+and then x deletes a single character. If we 
+invoke the dot command, it repeats the single
+character deletion (. == x). That's not what I
+would call a big win.
+
+The forward deletion technique also involves two
+steps. This time, b is just a plain motion, while
+dw makes a change. The dot command repeats dw, 
+deleting from the cursor position to the beginning
+to the next word. It so happens that we're already
+at the end of the line. There is no "next word", 
+so in this context the dot command isn't useful.
+But at least it's shorthand for something longer
+(. == dw).
+
+The final solution only invokes a single operation:
+daw. This technique doesn't just remove the word,
+it also deletes a whitespace character. As a 
+result, our cursor ends up on the last character
+of the word "is". If we invoke the dot command, it
+will repeat the instruction to delete a word. This
+time, the dot command does something truly useful
+(. == daw).
+
+
+Discussion
+
+The daw technique invests the most power into the
+dot command, so I declare it the winner of this
+round.
+
+Making effective use of the dot command often 
+requires some forethought. If you notice that you
+have to make the same small change in a handful of
+places, you can attempt to compose your changes in
+such a way that they can be repeated with the dot
+command. Recognizing those opportunities takes 
+practice. But if you develop a habit of making 
+your changes repeatale whenever possible, then Vim
+will reward you for it.
+
+Sometimes, I won't see an opportunity to use the 
+dot command. After making a change --and finding
+that I need to perform an identical edit --I 
+realize that the dot command is primed and ready
+to do the work for me. It makes me grin every time.
+
+
+                            Tip 10
+Use Counts to Do Simple Arithmetic
+
+Most Normal mode commands can be executed with a
+count. We can exploit this feature to do simple
+arithmetic.
+
+Many of the commands that are available in Normal
+mode can be prefixed with a count. Instead of 
+executing the command just once, Vim will attempt
+to execute the command the specified number of 
+times (see :h count).
+
+The <C-a> and <C-x> commands perform addtion and
+subtraction on numbers. When run without a count
+they increment by one, but if we prefix a number,
+then we can add or subtract by any whole number.
+For example, if we positioned our cursor on a 5
+character, runnning 10<C-a> would modify it to read
+15.
+
+But what happens if the cursor is not positioned
+on a numeric digit? The documentation says that the
+<C-a> command will "add [count] to the number at
+or after the cursor" (see :h ctrl-a). So if the
+cursor is not already positioned on a number, then
+the <C-a> command will look ahead for a digit on
+the current line. If it finds one, it jumps 
+straight to it. We can use this to our advantage.
+
+Here's a snippet of CSS:
+
+normal_mode/sprite.css
+.blog, .news { background-image: url(/sprite.png);}
+.blog { background-position: 0px 0px }
+
+We are going to duplicate the last line and make
+two small modifications to it: replace the word
+"blog" with "news", and change "0px" to "-180px".
+We can duplicate the line by running yyp and then
+using cW to change the first word. But how should
+we deal with number?
+
+One approach would be to jump to the digit with
+f0 and then dip into Insert mode to change the
+value by hand: i-18<Esc>. But it's quicker just to
+run 180<C-x>. Since our cursor isn't on a digit to
+begin with, it jumps forward to the first one that
+it finds. That saves us the step of moving the
+cursor by hand. Let's see this work flow in action:
+
+keystrokes      BufferContent
+----------------------------------------------
+{start}         .blog, .news { background-image:
+                    url(/sprite.png);}
+               |.blog { background-position: 
+                    0px 0px }
+----------------------------------------------
+yyp             .blog, .news { background-image:
+                    url(/sprite.png);}
+                .blog { background-position: 
+                    0px 0px }
+               |.blog { background-position: 
+                    0px 0px }
+----------------------------------------------
+cW.news<Esc>    .blog, .news { background-image:
+                    url(/sprite.png);}
+                .blog { background-position: 
+                    0px 0px }
+                .new|s { background-position: 
+                    0px 0px }
+----------------------------------------------
+180<C-x>        .blog, .news { background-image:
+                    url(/sprite.png);}
+                .blog { background-position: 
+                    0px 0px }
+                .new|s { background-position: 
+                    -18|0px 0px }
+
+In this example, we've only duplicated the line 
+once and made changes. But suppose we had to make
+ten copies, subtracting 180 from the number in each
+successive copy. If we were to switch to Insert
+mode to amend each number, we'd have to type 
+something different each time (-180, then -360, and
+so on). But by using the 180<C-x> command, our 
+work flow is identical for each successive line.
+We could even record our key strokes as a macro
+(see Chapter 11, Macros, on page 161) and then
+play it back as many times as needed.
+
+Number Formats
+
+What follows 007? No, this isn't a James Bond gag:
+I'm asking what result would you expect if you 
+added one to 007.
+
+If you answered 008, then you might be in for a
+surprise when you try using Vim's <C-a> command
+on any number with a leading zero. As is the
+convention in some programming languages, Vim
+interprets numerals with a leading zero to be in
+octal notation rather than in decimal. In the octal
+numeric system, 007 + 001 = 010, which looks like
+the decimal ten but actually an octal eight.
+Confused?
+
+If you work with octal numbers frequently, Vim's
+default behavior might suit you. If you don't, you
+probably want to add the following line to your 
+vimrc:
+
+set nrformats=
+
+This will cause Vim to treat all numerals as 
+decimal, regardless of whether they are padded with
+zeros.
+
+
+                        Tip 11
+Don't Count If You Can Repeat
+
+We can minimize the keystrokes required to perform
+certain tasls by providing a count, but that 
+doesn't mean that we should. Consoder the pros and
+cons of counting versus repeating.
+
+Suppose that we had the following text in our 
+buffer:
+
+Delete |more than one word
+
+We want to do as the text says, changing it to 
+read "Delete one word" instead. That is to say, 
+we're going to delete two words.
+
+We can approach this in a handful of ways. Both 
+d2w and 2dw will work. With d2w, we invoke the
+delete command and then give 2w as the motion. We
+could read that as "delete two words". However, 
+2dw turns things around. This time the count 
+applies to the delete command. but the motion acts
+over a single word. We could read this as "delete
+a word two times". Putting semantics aside, we get
+the same result either way.
+
+Now let's consider an alternative: dw. . This we
+can read as "Delete a word and then repeat."
+
+To recap, our options are as follows: d2w, 2dw, or
+dw. --three keystrokes each. But which is best?
+
+For our discussion, d2w and 2dw are identical.
+After running either of these, we can press the u
+key to undo, and the two words that were deleted
+will appear again. Or, instead of undoing our
+change, we could repeat it with the dot command, 
+which would delete the next two words.
+
+In the case of dw., the result of pressing u or .
+is subtly different. Here, the change was dw --
+"delete word". So if we wanted to restore the two
+words that were deleted, we'd have to undo twice:
+pressing uu (or 2u if you prefer). Pressing the
+dot command would just delete the next word rather
+than the next two.
+
+Now suppose that instead of deleting two words, our
+original intent was to delete three words. By a
+small error in judgment, we run d2w instead of d3w.
+
+What next? We can't use the dot command, because
+that would cause a total of four words to be 
+deleted. So we could either back up and revise our
+count (ud3w) or continue by deleting the next word
+(dw).
+
+If, on the other hand, we had used the command dw.
+in the first place, we would have to repeat the
+dot command only one more time. Because our 
+original change was simply dw, the u and . 
+commands have more granularity. Each acts upon one
+word at a time.
+
+Now suppose that we want to delete seven word. We
+could either run d7w, or dw..... (that is, dw 
+followed by the dot command six times). Counting
+keystrokes, we have a clear winner. But would you
+trust yourself to make the right count?
+
+Counting is tedious. I'd rather hit the dot command
+six times than spend the same time looking ahead
+in order to reduce the number of keys that I have
+to press. What if I hit the dot command one too
+many times? No matter, I just back up by hitting
+the u key once.
+
+Remember our mantra (from Tip 4 Act, Repeat,
+Reverse, on page 8): act, repeat, reverse. Here it
+is in action.
+
+
+Use a Count When It Matters
+
+Suppose that we wanted to change the text "I have
+a couple of questions" to instead read "I have some
+more questions." We could do so as follows:
+
+Keystrokes      BufferContents
+------------------------------------------
+{start}         I have |a couple of questions.
+c3w             I have some mor|e questions.
+
+In this scenario, it doesn't make much sense to use
+the dot command. We could delete one word and then
+another (with the dot command), but then we'd have
+to switch gears and change to Insert mode (using
+i or cw, for example). To me, that feels awkward
+enough that I'd rather go ahead and use a count.
+
+There's another advantage to using a count: it 
+gives us a clean and coherent undo history. Having
+made this change, we could undo it with a single
+press of the u key, which ties in with the 
+discussion in Tip 8, Chunk Your Undos, on page 16.
+
+Tha
